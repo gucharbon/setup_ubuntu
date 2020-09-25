@@ -1,0 +1,26 @@
+---
+- name: Update distribution with apt
+  apt:
+    upgrade: dist
+    update_cache: true
+    cache_valid_time: 3600
+    dpkg_options: "{{ dpkg_options }}"
+  when: upgrade_dist|bool
+  tags:
+    - packages
+
+- name: Remove packages with apt
+  apt:
+    name: "{{ remove_packages }}"
+    state: absent
+  tags:
+    - packages
+
+- name: Install latest packages with apt
+  apt:
+    name: "{{ install_packages }}"
+    update_cache: true
+    cache_valid_time: 3600
+    state: present
+  tags:
+    - packages

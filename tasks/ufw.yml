@@ -1,0 +1,35 @@
+---
+- name: Enable UFW
+  ufw:
+    state: enabled
+  tags:
+    - firewall
+
+- name: Ensure ufw is started
+  service:
+    name: ufw
+    state: started
+  tags:
+    - firewall
+
+- name: Define firewall rules with ufw
+  ufw:
+    rule: "{{ item.rule }}"
+    port: "{{ item.port | default(omit) }}"
+    proto: "{{ item.proto | default(omit) }}"
+    src: "{{ item.source | default(omit) }}"
+  loop: "{{ firewall_rules }}"
+  tags:
+    - firewall
+  notify:
+    - reload ufw
+
+- name: Define firewall policies with ufw
+  ufw:
+    direction: "{{ item.direction }}"
+    policy: "{{ item.policy }}"
+  loop: "{{ firewall_policies }}"
+  tags:
+    - firewall
+  notify:
+    - reload ufw

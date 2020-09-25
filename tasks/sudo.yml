@@ -1,0 +1,20 @@
+---
+- name: Give passworless sudo rights to specific users according to configuration
+  lineinfile:
+    dest: /etc/sudoers
+    insertafter: EOF
+    line: "{{ user.name }} ALL=(ALL) NOPASSWD: ALL"
+    regexp: "^{{ user.name }} .*"
+    state: present
+  when: user.passwordless_sudo is defined and user.passwordless_sudo
+  loop: "{{ users }}"
+  loop_control:
+    loop_var: user
+
+- name: Give sudo rights to sudo users according to configuration
+  user:
+    name: "{{ item.name }}"
+    groups: sudo
+    append: true
+  when: item.sudo_user is defined and item.sudo_user|bool
+  loop: "{{ users }}"

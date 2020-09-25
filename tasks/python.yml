@@ -1,0 +1,16 @@
+---
+# Remove python packages using pip
+- name: Remove python packages
+  pip:
+    name: "{{ remove_pip_packages }}"
+    state: absent
+  tags:
+    - python
+
+# Install python packages using pip
+- name: Install python packages
+  pip:
+    name: "{{ pip_packages }}"
+    state: present
+  tags:
+    - python

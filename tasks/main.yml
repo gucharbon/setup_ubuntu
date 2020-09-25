@@ -1,0 +1,37 @@
+---
+# tasks file for setup-ubntu
+
+- name: Create groups
+  include_tasks: groups.yml
+  tags:
+    - groups
+
+- name: Configure users
+  include_tasks: users.yml
+  tags:
+    - users
+
+- name: Configure SSH
+  include_tasks: ssh.yml
+  tags:
+    - ssh
+
+- name: Configure sudo
+  include_tasks: sudo.yml
+  tags:
+    - sudo
+
+- name: Configure apt-get and dpkg and update system packages
+  include_tasks: packages.yml
+  tags:
+    - packages
+
+- name: Update or install python packages
+  include_tasks: python.yml
+  tags:
+    - python
+
+- name: Configure ufw firewall
+  include: ufw.yml
+  tags:
+    - firewall

@@ -1,0 +1,14 @@
+# Default SSH server configuration
+---
+# SSH listenning port
+ssh_port: 22
+# SSH listenning host
+ssh_address: 0.0.0.0
+# SSH authorized keys file
+ssh_authorized_keys: .ssh/authorized_keys
+# Policy for root login
+ssh_root_login: prohibit-password
+# Enable password authentication (this does not concern root user)
+ssh_password_authentication: true
+# Disable empty password
+ssh_empty_password: false

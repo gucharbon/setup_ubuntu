@@ -1,0 +1,20 @@
+# Default firewall rules.
+---
+firewall_policies:
+  # Deny all incoming traffic by default.
+  - direction: incoming
+    policy: deny
+
+firewall_rules:
+  # Allow port 22 for SSH.
+  - rule: allow
+    port: 22
+    proto: tcp
+  # Allow port 80 for HTTP.
+  - rule: allow
+    port: 80
+    proto: tcp
+  # Allow port 443 for HTTPS.
+  - rule: allow
+    port: 443
+    proto: tcp

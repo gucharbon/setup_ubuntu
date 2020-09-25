@@ -1,0 +1,15 @@
+# Handler file for setup_ubuntu role.
+---
+- name: reload sshd
+  service:
+    name: sshd
+    state: reloaded
+
+- name: reload firewalld
+  systemd:
+    name: firewalld
+    state: reloaded
+
+- name: reload ufw
+  ufw:
+    state: reloaded

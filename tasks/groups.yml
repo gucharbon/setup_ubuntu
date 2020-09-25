@@ -1,0 +1,7 @@
+---
+- name: Create groups if they do not exist yet
+  group:
+    name: "{{ item.name }}"
+    state: present
+    gid: "{{ item.gid }}"
+  loop: "{{ user_groups }}"

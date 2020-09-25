@@ -1,0 +1,26 @@
+# Default apt-get and dpkg configuration.
+---
+# Upgrade packages by default
+upgrade_dist: true
+
+# Only takes effect with hosts with Debian family OS
+dpkg_options: force-confold,force-confdef
+
+# Do not specify package to remove by default
+remove_packages: []
+
+# Package to install are specified in `./vars`
+install_packages:
+  - vim
+  - dos2unix
+  - git
+  - curl
+  - wget
+  - telnet
+  - iputils-ping
+  - ufw
+  - sudo
+  - software-properties-common
+  - ntp
+  - python3
+  - python3-pip
