@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Guillaume Charbonnier
   description: Minimal setup for ubuntu servers.
@@ -26,10 +27,12 @@ galaxy_info:
   # https://galaxy.ansible.com/api/v1/platforms/
   #
   platforms:
+    - name: Debian
+      versions:
+        - all
     - name: Ubuntu
       versions:
-        - 18.04
-        - 20.04
+        - all
 
   galaxy_tags:
     ["ubuntu", "bootstrap", "provisionning"]

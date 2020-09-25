@@ -1,5 +1,4 @@
 ---
-
 - name: Create users if they do not exist yet else update users
   user:
     # User must have an attribute "name"
@@ -26,7 +25,7 @@
     # Set to false if you do not want to append user to group but switch group
     append: "{{ user.append | default('true') }}"
     # Lock user password
-    password_lock : "{{ user.password_lock | default(omit) }}"
+    password_lock: "{{ user.password_lock | default(omit) }}"
   loop: "{{ users }}"
   loop_control:
     loop_var: user

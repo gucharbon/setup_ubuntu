@@ -2,7 +2,7 @@
 - name: Create users ssh-keys when they do not exist
   user:
     name: "{{ user.name }}"
-    generate_ssh_key: yes
+    generate_ssh_key: true
     ssh_key_bits: 2048
     ssh_key_comment: "{{ user.name }}@{{ inventory_hostname }}"
   when: "user.generate_ssh_key is defined and user.generate_ssh_key|bool"
@@ -13,7 +13,7 @@
 - name: Generate ssh public key of current user if it does not exist
   user:
     name: "{{ ansible_user }}"
-    generate_ssh_key: yes
+    generate_ssh_key: true
     ssh_key_bits: 2048
     ssh_key_comment: "{{ ansible_user }}@{{ inventory_hostname }}"
 
@@ -21,7 +21,7 @@
   authorized_key:
     user: "{{ item.0.name }}"
     key: "{{ item.1 }}"
-  loop: "{{ lookup('subelements', users, 'ssh_authorized_keys', {'skip_missing': True}, wantlist=True) }}"
+  loop: "{{ lookup('subelements', users, 'ssh_authorized_keys', {'skip_missing': True}, wantlist=True) }}" # yamllint disable-line
 
 - name: Configure sshd
   template:
