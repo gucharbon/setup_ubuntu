@@ -1,9 +1,10 @@
 # Default firewall rules.
 ---
 firewall_policies:
+  []
   # Deny all incoming traffic by default.
-  - direction: incoming
-    policy: deny
+  # - direction: incoming
+  #   policy: deny
 
 firewall_rules:
   # Allow port 22 for SSH.
