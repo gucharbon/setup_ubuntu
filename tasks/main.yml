@@ -33,5 +33,6 @@
 
 - name: Configure ufw firewall
   include: ufw.yml
+  when: enable_ufw|bool
   tags:
     - firewall

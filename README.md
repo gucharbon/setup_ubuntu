@@ -22,6 +22,7 @@ You only need to have an SSH access to the remote host in order to play this rol
 | `install_packages`  | `["vim", "dos2unix", "git", "curl", "wget", "telnet", "iputils-ping", "ufw", "sudo", "software-properties-common", "ntp", "python3", "python3-pip"]` | A list of packages to install.         |
 | `user_groups`       | `[{ name: "docker", gid: 12345 }]`                                                                                                                   | A list of user_groups dictionaries.    |
 | `users`             | See file `defaults/main/users.yml`                                                                                                                   | Users to create.                       |
+| `enable_ufw`        | `true`                                                                                                                                               | Enable ufw firewall                    |
 | `firewall_rules`    | See file `defaults/main/firewall.yml`                                                                                                                | Firewall rules (ufw).                  |
 | `firewall_policies` | See file `defaults/main/policies.yml`                                                                                                                | Firewall rules (ufw).                  |
 

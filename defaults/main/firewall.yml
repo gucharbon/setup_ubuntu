@@ -1,5 +1,7 @@
 # Default firewall rules.
 ---
+enable_ufw: true
+
 firewall_policies:
   []
   # Deny all incoming traffic by default.
