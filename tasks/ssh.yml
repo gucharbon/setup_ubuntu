@@ -30,3 +30,6 @@
     mode: "0644"
   notify:
     - reload sshd
+
+- name: Force all notified handlers to run at this point
+  meta: flush_handlers
