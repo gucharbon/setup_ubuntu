@@ -9,6 +9,6 @@ ssh_authorized_keys: .ssh/authorized_keys
 # Policy for root login
 ssh_root_login: prohibit-password
 # Enable password authentication (this does not concern root user)
-ssh_password_authentication: true
+ssh_password_authentication: "yes"
 # Disable empty password
-ssh_empty_password: false
+ssh_empty_password: "no"
