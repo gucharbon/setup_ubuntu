@@ -24,3 +24,11 @@ install_packages:
   - ntp
   - python3
   - python3-pip
+  # Userful archive/compression liraries
+  - zip
+  - unzip
+  - gzip
+  - lzma
+  - bzip2
+  - tar
+  - xz-utils
